@@ -39,7 +39,7 @@ public class Pilha {
 		} else {
 			retorno.ok = false;
 		}
-
+		System.out.println(retorno.item);
 		return retorno;
 	}
 
@@ -53,5 +53,49 @@ public class Pilha {
 		}
 		
 		return retorno;
+	}
+	public No getTopo() {
+		return topo;
+	}
+	
+	public String getTela(No no) {
+		return no.tela;
+	}
+	public No getProximo(No no) {
+		return no.proximo;
+	}
+	
+	public No getNo(String dado) {
+		No aux = topo;
+		while( aux != null && !aux.tela.equals(dado) ) {
+			aux = aux.proximo;
+		}
+		return aux;
+	}
+	
+	public int getLength() {
+		No aux = topo;
+		int count = 1;
+		if(!isEmpty()) {
+			while(aux.proximo != null ) {
+				aux = aux.proximo;
+				count ++;
+			}
+		}
+		return count;
+	}
+	
+	public String[] getPilha() {
+		String[] dados = new String[getLength()];
+		if(!isEmpty()) {
+			int count =0;
+			No aux = topo;
+			while(aux != null ) {
+				dados[count] = aux.tela;
+				aux = aux.proximo;
+				count ++;
+			}
+		}
+		return dados;
 	}
 }
