@@ -3,6 +3,7 @@ package teste;
 import java.util.Scanner;
 
 import lista.Pilha;
+import lista.Pilha.Retorno;
 
 public class Teste {
 	
@@ -59,11 +60,11 @@ public class Teste {
 	
 	
 	public void checkTopo() {
-		if (pilha.getTopo() == null) {
-			System.out.println("Pilha está com o topo vazio");
-		}
-		else {
-			System.out.println("Pilha está com o topo cheio: " + pilha.getTela(pilha.getTopo()));
+		Retorno retorno = pilha.top();
+		if(retorno.ok){
+			System.out.println("Valor do topo é: " + retorno.item);
+		}else{
+			System.out.println("Topo está vazio");
 		}
 	}
 	
@@ -84,5 +85,13 @@ public class Teste {
 			System.out.println("Não há valor na pilha");
 		}
 
+	}
+	
+	public void showPilha()
+	{
+		String[] telas = pilha.getPilha();
+		for(int i =0; i<telas.length;i++) {
+			System.out.println(telas[i]);
+		}
 	}
 }
