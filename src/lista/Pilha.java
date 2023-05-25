@@ -7,7 +7,7 @@ public class Pilha {
 		public No proximo;
 	}
 
-	private static class Retorno {
+	public static class Retorno {
 		public String item;
 		public boolean ok;
 	}
