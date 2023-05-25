@@ -18,7 +18,7 @@ public class Teste {
 	public void adicionou() {
 		Scanner sc = new Scanner(System.in);
 		if (pilha.isEmpty()) {
-			System.out.println("Digite o dado que quer inserir");
+			System.out.println("Digite a tela que deseja inserir");
 			String dado = sc.nextLine();
 			pilha.push(dado);
 			System.out.println("Foi adicionado: " + dado);
@@ -29,7 +29,7 @@ public class Teste {
 				String dado = sc.nextLine();
 				pertence = pertence(dado);
 				if (pertence) {
-					System.out.println("Esse dado já foi inserido!");
+					System.out.println("Essa tela já foi inserido!");
 				} else {
 					pilha.push(dado);
 					System.out.println("Foi adicionado: " + dado);
@@ -59,7 +59,7 @@ public class Teste {
 	public void checkTopo() {
 		Retorno retorno = pilha.top();
 		if (retorno.ok) {
-			System.out.println("Valor do topo é: " + retorno.item);
+			System.out.println("A tela do topo é: " + retorno.item);
 		} else {
 			System.out.println("Topo está vazio");
 		}
@@ -67,24 +67,24 @@ public class Teste {
 
 	public void checkProximo() {
 		if(pilha.isEmpty()) {
-			System.out.println("Não há valor na pilha");
+			System.out.println("Não há tela na pilha");
 			return;
 		}
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Digite o dado que quer checar");
+		System.out.println("Digite o a tela que quer checar");
 		String dado = sc.nextLine();
 		
 		if(pilha.getNo(dado) == null) {
-			System.out.println("Este item não existe");
+			System.out.println("Esta tela não existe");
 			return;
 		}
 
 		if (pilha.getProximo(pilha.getNo(dado)) != null) {
-			System.out.println("Dado do nó escolhido: " + pilha.getTela(pilha.getNo(dado)));
-			System.out.println("Proximo dado é: " + pilha.getTela(pilha.getProximo(pilha.getNo(dado))));
+			System.out.println("Tela escolhida escolhido: " + pilha.getTela(pilha.getNo(dado)));
+			System.out.println("Proxima tela é: " + pilha.getTela(pilha.getProximo(pilha.getNo(dado))));
 		} else {
-			System.out.println("Este é o último item da pilha");
+			System.out.println("Esta é a última tela da pilha");
 		}
 
 	}
