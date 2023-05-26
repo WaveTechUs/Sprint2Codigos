@@ -17,9 +17,15 @@ public class Teste {
 
 	public void adicionou() {
 		Scanner sc = new Scanner(System.in);
+		
 		if (pilha.isEmpty()) {
 			System.out.println("Digite a tela que deseja inserir");
 			String dado = sc.nextLine();
+			if(dado.length() == 0) {
+				System.out.println("Nome da tela não preenchido. Digite um nome válido");
+				return;
+			}
+			
 			pilha.push(dado);
 			System.out.println("Foi adicionado: " + dado);
 		} else {
@@ -28,6 +34,11 @@ public class Teste {
 				System.out.println("Digite o nome da tela que deseja inserir");
 				String dado = sc.nextLine();
 				pertence = pertence(dado);
+				if(dado.length() == 0) {
+					System.out.println("Nome da tela não preenchido. Digite um nome válido");
+					return;
+				}
+				
 				if (pertence) {
 					System.out.println("Essa tela já foi inserido!");
 				} else {
