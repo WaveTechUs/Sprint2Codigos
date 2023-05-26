@@ -1,5 +1,6 @@
 package util;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import lista.Pilha;
@@ -36,10 +37,19 @@ public class Util {
 			System.out.println("6- Sair");
 			System.out.println("=====================================");
 			System.out.println("Escolha um numero: ");
-			escolha = sc.nextInt();	
-			if(escolha > 1 && escolha < 6 && !pilhaVazia) {
-				break;
+			
+			try {
+				escolha = sc.nextInt();	
+				
+				if(escolha > 1 && escolha < 6 && !pilhaVazia) {
+					break;
+				}
+			}catch(InputMismatchException e){
+				sc.nextLine();
+				System.out.println("Opção inválida. Digite um número válido."); 
+				escolha = 0;
 			}
+			
 		}while(escolha != 1 && escolha != 6);
 		return escolha;
 	}
@@ -59,7 +69,6 @@ public class Util {
 	    case 4:
 	    	System.out.println("Os Valores dentro da Pilha (top para baixo): ");
 	    	teste.showPilha();
-	    	System.out.println("null");
 	    	break;
 	    case 5:
 	    	System.out.println("Valor removido:");
